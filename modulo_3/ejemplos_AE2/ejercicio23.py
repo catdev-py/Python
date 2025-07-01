@@ -17,7 +17,6 @@ for producto in carrito:
 
 print(f"Total a pagar: ${total}")
 
-
 # total = total + productos[producto]
 # total += productos[producto] Forma abreviada
 

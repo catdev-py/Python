@@ -1,0 +1,8 @@
+Ejercicios para practicar
+Escribe un programa que:
+1. Pida al usuario su nombre y apellido.
+2. Los concatene de 3 formas distintas: usando comas, usando +, y usando f-string.
+3. Pregunte la edad y la convierta a texto para unirla a una cadena.
+4. Cuente cuántas letras "a" hay en su nombre completo.
+5. Divida el nombre completo en lista de palabras.
+6. Revise si el nombre completo termina en la palabra "van Rossum" (puedes cambiar por otro apellido). 

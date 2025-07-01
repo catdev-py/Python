@@ -1,0 +1,32 @@
+Ejercicios Prácticos
+
+Operadores Lógicos y de Comparación
+Crear dos variables: edad y tiene_licencia.
+
+Imprimir si la persona puede conducir (mayor de 18 y con licencia).
+
+Condicionales
+Pedir al usuario su temperatura corporal.
+Si es mayor a 37.5, decir "Tienes fiebre".
+Si está entre 36 y 37.5, decir "Estás normal".
+Si es menos de 36, decir "Estás frío como un pingüino 🐧".
+
+Ciclo for
+Imprimir los números pares del 0 al 10.
+Recorrer una lista de colores e imprimirlos.
+
+Ciclo while
+Contar de 1 a 5 usando while.
+Crear un ciclo que pida contraseñas hasta que escriban "secreto".
+
+break y continue
+Imprimir números del 1 al 10, pero detenerse al llegar al 6.
+Imprimir del 1 al 5, pero saltar el número 3.
+
+Objetos en Python
+Crear la clase Mascota con nombre y especie.
+Crear un objeto mascota y mostrar sus datos.
+Cambiar su especie.
+Agregar un atributo "edad" dinámicamente.
+Eliminar el atributo "edad".
+

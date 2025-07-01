@@ -1,0 +1,37 @@
+Ejercicios Prácticos
+Listas:
+Crea una lista de tus 3 comidas favoritas.
+Agrega una cuarta comida.
+Elimina la segunda comida.
+Imprime la lista final.
+
+Tuplas:
+Crea una tupla con el nombre de 3 planetas.
+Imprime el segundo planeta.
+
+Sets:
+Crea un set con los deportes que practicas.
+Agrega un nuevo deporte.
+Intenta agregar el mismo deporte de nuevo, ¿qué pasa?
+
+Imprime el set final.
+Conjuntos:
+Grupo A: {"Laura", "Carlos", "Juan"}
+Grupo B: {"Carlos", "Juan", "Sofía"}
+
+Imprime los que están en ambos grupos.
+
+Imprime los que solo están en el Grupo A.
+
+Diccionario:
+Crea un diccionario con el nombre y teléfono de 2 amigos.
+Agrega un tercer amigo.
+
+Imprime todos los nombres (claves).
+
+Imprime todos los teléfonos (valores).
+
+Booleanos:
+Crea una variable edad = 16
+Verifica si es mayor de edad.
+Si no es mayor de edad, imprime "No puede votar", si es mayor, imprime "Puede votar".
