@@ -12,5 +12,5 @@ pelotas.add("amarilla")
 print(pelotas)
 
 # Eliminar una pelota
-pelotas.remove("azul")
+pelotas.remove("roja")
 print(pelotas)

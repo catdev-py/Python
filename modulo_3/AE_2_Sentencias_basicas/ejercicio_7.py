@@ -25,4 +25,4 @@ print(persona1.ciudad)
 
 # Eliminar un atributo
 del persona1.ciudad
-# print(persona1.ciudad)  # Esto da error porque ya no existe
+print(persona1.ciudad)  # Esto da error porque ya no existe

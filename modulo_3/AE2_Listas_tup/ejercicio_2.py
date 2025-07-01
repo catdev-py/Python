@@ -6,7 +6,7 @@ no puedes sacar ni meter cosas, ¡viene listo!
 # Crear una tupla
 menu = ("Sopa", "Plato Principal", "Postre")
 
-print(menu[0])  # Ver la Sopa
+print(menu[2])  # Ver la Sopa
 
 # Las tuplas no se pueden modificar
 # menu.append("Bebida")  # Esto da ERROR

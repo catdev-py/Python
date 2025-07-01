@@ -8,6 +8,8 @@ altura = 1.75
 
 print(f"Mi nombre es {nombre} y tengo {edad} años")
 
+print(f"Mi nombre es {nombre} y tengo {edad} años".upper()) #pasar directo el texto a mayúsculas
+
 # Forma clásica: Usando .format()
 print("Mi nombre es {} y tengo {} años".format(nombre, edad))
 

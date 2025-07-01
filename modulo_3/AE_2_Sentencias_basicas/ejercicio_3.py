@@ -12,7 +12,7 @@ else:
     print("Eres menor de edad.")
 
 # Combinando condiciones:
-nota = 7
+nota = 5
 asistencia = 85
 
 if nota >= 6 and asistencia >= 80:
