@@ -1,0 +1,6 @@
+JavaScript Básico:
+- Qué es JavaScript y cómo se integra en HTML.
+- Variables, tipos de datos y operadores.
+- Funciones y estructuras de control (if, for, while).
+- DOM: document.getElementById, querySelector, innerText, style.
+- Eventos: addEventListener, click, input, keydown.

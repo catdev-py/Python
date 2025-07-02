@@ -1,0 +1,6 @@
+jQuery Básico:
+- Integración de jQuery vía CDN.
+- Selección de elementos: $('#id'), $('.clase'), $('etiqueta').
+- Eventos: .on('click', ...), .click(), .hover().
+- Efectos: .hide(), .show(), .toggle(), .fadeIn(), .fadeOut().
+- Manipulación de clases y atributos: .addClass(), .removeClass(), .attr().
