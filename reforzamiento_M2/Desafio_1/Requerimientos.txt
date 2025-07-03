@@ -1,0 +1,63 @@
+Desafío Práctico - Desarrollo Web: Bootstrap, JavaScript y jQuery
+
+Objetivo del Desafío:
+
+Construir en grupo una página web simple, responsive y funcional, 
+reforzando los siguientes conceptos:
+- Estructura de Proyecto Web estándar (HTML + CSS + JS)
+- Uso de Bootstrap 5.3 para diseño responsive.
+- Integración de jQuery para manipular elementos del DOM.
+- Uso de JavaScript para programación básica.
+
+Práctica de trabajo en equipo con Git, ramas y GitHub.
+
+Requerimientos Técnicos:
+
+1. Estructura de Carpetas:
+
+proyecto_web/
+├── index.html
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   └── js/
+│       └── script.js
+
+2. Tecnologías a Utilizar:
+
+Bootstrap 5.3 (CDN)
+
+jQuery (CDN)
+
+JavaScript (archivos en carpeta js)
+
+3. Página Web a Construir: "Mini Portal de Turismo de Chile"
+
+Header con título: "Turismo Chile" (centrado, con fondo de color usando Bootstrap)
+
+Una sección con 3 cards de Bootstrap, cada una representando un destino:
+
+"Desierto de Atacama"
+
+"Torres del Paine"
+
+"Isla de Pascua"
+
+Cada card debe tener:
+
+- Imagen ilustrativa (pueden ser placeholders)
+- Nombre del destino
+- Botón "Ver Más"
+- Al hacer clic en "Ver Más":
+  Con jQuery, mostrar un mensaje debajo de la card: 
+  "Próximamente más información de [DESTINO]"
+
+Pie de página con el texto: "Sitio de Ejemplo para el Bootcamp Fullstack Python"
+
+4. Responsividad:
+
+El diseño debe adaptarse correctamente en computadoras y celulares usando Bootstrap.
+
+5. Validaciones:
+
+El botón "Ver Más" no debe recargar la página.

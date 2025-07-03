@@ -1,0 +1,40 @@
+Ejercicio 2: Interactividad adicional
+
+Ampliar el proyecto agregando:
+- Un botón superior "Mostrar Fecha y Hora Actual"
+- Al hacer clic:
+  -Con JavaScript, mostrar un alert 
+   con la fecha y hora actual en formato: dd/mm/yyyy hh:mm:ss
+
+Wireframe Referencial:
+
+ -----------------------------------------------------
+|                  Turismo Chile                     |
+ -----------------------------------------------------
+| [Mostrar Fecha y Hora Actual]                      |
+ -----------------------------------------------------
+| [Card: Desierto de Atacama]  [Card: Torres...]     |
+| [Ver Más]                     [Ver Más]            |
+| Mensaje (se muestra con jQuery)                    |
+ -----------------------------------------------------
+| Pie de página: Sitio de Ejemplo...                 |
+ -----------------------------------------------------
+
+Guía de Instrucciones:
+
+1. Un integrante será el Gitmaster, inicializa el repositorio y comparte las ramas.
+2. Clonar el proyecto base entregado.
+3. Dividir tareas:
+- Un miembro del equipo se encarga del HTML.
+- Otro del CSS.
+- Otro de JavaScript y jQuery.
+4. Subir cambios a ramas individuales, luego hacer merge.
+5. Testear responsividad y funcionalidad.
+
+Notas Importantes:
+
+Uso obligatorio de Bootstrap para diseño.
+Evitar estilos en línea, centralizar CSS en style.css.
+Todo código jQuery debe ir dentro de $(document).ready().
+El código debe ser comentado y prolijo.
+
