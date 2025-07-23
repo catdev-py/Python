@@ -1,0 +1,30 @@
+""" Dada la lista L = ["almacenar", 8, "a", [1,2,3], True, (0,0,1), 85.7]
+a. ¿Cuál de estos elementos pertenece a ella?
+c= [ 87.5 , True , [(0,0,1)] , [1,2,3] , 0 , [true] , 85 , "a" ]
+b. ¿Cómo obtener la posición en que se encuentra el elemento (0,0,1)?
+c. ¿Cómo eliminar el último elemento, independientemente de cuántos elementos haya en la lista?
+d. Utilizar una operación para contar cuántas veces aparece el string “a”. ¿Cuál será el resultado? """
+
+#crear lista
+L = ['almacenar', 8, 'a', [1,2,3], True, (0,0,1), 85.7 ]
+
+#creamos otra lista con los elementos a comparar
+C = [85.7, True, [(0,0,1)], [1,2,3], 0, [True], 85, 'a' ]
+
+#comparamos haciendo un for dentro de otro for
+M = []
+for i in C:
+  for j in L:
+    if(i==j):
+      M.append(i)
+print('los elementos iguales son:', M)
+
+# b
+L.index((0,0,1))
+
+# c
+L.remove(L) 
+L.pop()
+
+# d
+L.count("a")
