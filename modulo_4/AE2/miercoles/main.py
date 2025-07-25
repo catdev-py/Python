@@ -1,4 +1,5 @@
-from modulo_4.AE2.AE2.persona import Persona
+from persona import Persona
+from telefono import Telefono
 
 if __name__ == "__main__":
     p1 = Persona("Ana", 30) # Llama al constructor __init__ de Persona, pasando "Ana" y 30.
@@ -10,3 +11,8 @@ if __name__ == "__main__":
                             
     p2 = Persona("Carlos", 25)
     p2.saludar()
+    
+    t1 = Telefono("Huawei", "Y7", "Negro", "12345678")
+        
+    t2 = Telefono("Xiaomi", "Mi 9", "Negro", "87654321")
+    t2.llamar(t1.numero)

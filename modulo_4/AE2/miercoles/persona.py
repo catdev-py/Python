@@ -10,5 +10,7 @@ class Persona:
     def saludar(self): # método que utiliza los atributos para imprimir un saludo
         
         print(f"¡Hola! Soy {self.nombre} y tengo {self.edad} años.")
+        
+        
 
 
