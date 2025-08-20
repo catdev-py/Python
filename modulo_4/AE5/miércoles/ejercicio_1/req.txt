@@ -1,0 +1,48 @@
+Ejercicio 1: 
+Arriendo de Kayaks en el Lago Villarrica
+Requerimientos:
+Una empresa de Pucón arrienda kayaks por hora en el Lago Villarrica.
+
+
+Cada arriendo debe registrar:
+
+
+Un identificador único para el arriendo.
+
+
+El nombre del cliente.
+
+
+El número de horas arrendadas.
+
+
+El valor por hora del kayak.
+
+
+Cada kayak tiene información básica que se debe conocer:
+
+
+Un código único.
+
+
+Su capacidad máxima de personas.
+
+
+Su color.
+
+
+Se debe poder:
+
+
+Calcular el valor total del arriendo.
+
+
+Mostrar un resumen del arriendo con los datos del cliente, el kayak y el valor total.
+
+
+Si alguien intenta registrar un arriendo con horas negativas o cero, se debe lanzar 
+una excepción con un mensaje claro: "Las horas deben ser mayores a cero".
+
+
+Si se intenta asignar una capacidad máxima de personas menor a 1, también debe lanzarse 
+una excepción: "La capacidad debe ser al menos 1 persona".

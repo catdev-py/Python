@@ -1,0 +1,45 @@
+Ejercicio 2: 
+Sistema de Compras en una Feria de Temuco
+Requerimientos:
+En la feria Pinto de Temuco, un cliente puede comprar productos (ej: papas, tomates, manzanas).
+
+
+Cada producto debe registrar:
+
+
+Su nombre.
+
+Su precio por kilo.
+
+El stock disponible en kilos.
+
+El cliente debe registrar:
+
+Su nombre.
+
+Su RUT.
+
+Una lista de productos que desea comprar con la cantidad en kilos.
+
+La feria debe permitir:
+
+
+Agregar productos a la compra del cliente.
+
+
+Calcular el total a pagar.
+
+
+Actualizar el stock del producto después de la compra.
+
+
+Si el cliente intenta comprar más kilos de los que hay en stock, debe lanzarse una 
+excepción con el mensaje: "Stock insuficiente para [nombre del producto]".
+
+
+Si el RUT ingresado no tiene el formato correcto (ej: "12.345.678-9"), se debe lanzar 
+una excepción: "RUT inválido".
+
+
+Se debe poder mostrar un resumen de la compra: nombre del cliente, lista de productos 
+con cantidades y el total a pagar.

@@ -1,0 +1,4 @@
+-- Subconsulta ejemplo (requiere tabla empleados con salario)
+-- Mostrar empleados con salario mayor al promedio
+-- SELECT nombre FROM empleados
+-- WHERE salario > (SELECT AVG(salario) FROM empleados);

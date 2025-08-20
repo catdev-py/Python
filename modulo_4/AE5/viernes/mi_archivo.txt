@@ -1,0 +1,7 @@
+El manejo de archivos es esencial en programación, ya que muchas veces 
+necesitamos almacenar datos de manera persistente, fuera de la memoria 
+temporal del programa. Esto permite que los datos se mantengan incluso 
+después de que el programa termine su ejecución. Los archivos nos permiten 
+guardar información como registros de usuario, configuraciones, logs, o 
+incluso datos de una base de datos. Además, es una forma común de intercambiar 
+información entre aplicaciones o usuarios.
