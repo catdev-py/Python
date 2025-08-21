@@ -1,4 +1,4 @@
--- Active: 1735145457100@@127.0.0.1@3306@bootcamp_db
+-- Active: 1735145457100@@127.0.0.1@3306
 CREATE DATABASE IF NOT EXISTS bootcamp_db;
 USE bootcamp_db;
 

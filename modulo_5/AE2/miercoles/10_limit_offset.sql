@@ -1,0 +1,5 @@
+-- LIMIT
+SELECT * FROM Empleados LIMIT 5;
+
+-- OFFSET
+SELECT * FROM Empleados LIMIT 5 OFFSET 3;
