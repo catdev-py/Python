@@ -6,11 +6,8 @@ UPDATE cuentas
 SET saldo = saldo - 25000
 WHERE nombre = 'Juan Pérez' AND saldo >= 25000;
 
-SELECT ROW_COUNT() INTO @filas_afectadas;
+SET @filas_afectadas = ROW_COUNT();
 
-IF @filas_afectadas > 0 THEN
-    INSERT INTO cuentas (nombre, saldo) VALUES ('ENEL Chile', 25000);
-    COMMIT;
-ELSE
-    ROLLBACK;
+COMMIT;
+ROLLBACK;
 END IF;

@@ -4,13 +4,13 @@
   "settings": {
     "width": 2000,
     "height": 2000,
-    "scrollTop": -241.481,
-    "scrollLeft": -162.9568,
-    "zoomLevel": 0.79,
+    "scrollTop": 0,
+    "scrollLeft": 0,
+    "zoomLevel": 1,
     "show": 431,
     "database": 4,
     "databaseName": "rentacar",
-    "canvasType": "@dineug/erd-editor/builtin-schema-sql",
+    "canvasType": "ERD",
     "language": 1,
     "tableNameCase": 4,
     "columnNameCase": 2,
@@ -299,7 +299,7 @@
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1755820735950,
+          "updateAt": 1755906269441,
           "createAt": 1755820592623
         }
       },

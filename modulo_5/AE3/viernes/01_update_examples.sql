@@ -1,3 +1,4 @@
+-- Active: 1735145457100@@127.0.0.1@3306@banco_chile
 -- Ejemplos de UPDATE
 
 -- Actualizar un campo específico
