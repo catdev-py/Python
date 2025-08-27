@@ -1,3 +1,4 @@
+-- Active: 1735145457100@@127.0.0.1@3306
 -- Caso práctico: Veterinaria
 CREATE DATABASE veterinaria;
 USE veterinaria;
