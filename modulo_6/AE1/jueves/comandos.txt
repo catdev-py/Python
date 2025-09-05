@@ -1,0 +1,23 @@
+python -m venv nombre_entorno_virtual
+
+nombre_entorno_virtual\Scripts\activate
+
+pip install django
+
+python.exe -m pip install --upgrade pip (este comando es para actualizar pip)
+
+django-admin startproject nombre_del_proyecto
+
+cd nombre_del_proyecto
+
+Python manage.py makemigrations (Comando para hacer las migraciones)
+
+Python manage.py migrate (COmando para migrar las migraciones)
+
+python manage.py cratesuperuser (Comando para crear un super usuario)
+
+python manage.py runserver (Ejecutar el servidor de desarrollo)
+
+* para acceder al administrador de Django: http://127.0.0.1:8000/admin
+
+
