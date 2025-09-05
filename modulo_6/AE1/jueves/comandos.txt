@@ -1,6 +1,8 @@
 python -m venv nombre_entorno_virtual
 
-nombre_entorno_virtual\Scripts\activate
+nombre_entorno_virtual\Scripts\activate (Activar el entorno virtual)
+
+deactivate (desactivar el entorno virtual)
 
 pip install django
 
@@ -17,6 +19,8 @@ Python manage.py migrate (COmando para migrar las migraciones)
 python manage.py cratesuperuser (Comando para crear un super usuario)
 
 python manage.py runserver (Ejecutar el servidor de desarrollo)
+
+control+c (para desactivar el servidor de desarrollo)
 
 * para acceder al administrador de Django: http://127.0.0.1:8000/admin
 
