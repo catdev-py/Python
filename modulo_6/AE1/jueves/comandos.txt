@@ -24,4 +24,4 @@ control+c (para desactivar el servidor de desarrollo)
 
 * para acceder al administrador de Django: http://127.0.0.1:8000/admin
 
-
+python manage.py startapp nombre_app (comando para crear una app)
