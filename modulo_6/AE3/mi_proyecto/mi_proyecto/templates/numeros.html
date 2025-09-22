@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejemplo While en Django</title>
+</head>
+<body>
+    <h1>Números generados con WHILE en la vista</h1>
+    <ul>
+        {% for numero in numeros %}
+            <li>Número {{ forloop.counter }}: {{ numero }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

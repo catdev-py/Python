@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>Lista de Productos</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Productos</h1>
+        <ul class="list-group">
+            {% for producto in productos %}
+                <li class="list-group-item">
+                    <strong>{{ producto.nombre }}</strong> - ${{ producto.precio }}
+                    <p>{{ producto.descripcion }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

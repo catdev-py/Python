@@ -1,0 +1,106 @@
+Para cargar de forma manual datos directamente a la base de datos.
+
+Abrir el shell de Django:
+python manage.py shell
+
+Luego ejecutar:
+from mi_app.models import Producto
+
+productos = [
+    {"nombre": "Camiseta Deportiva", "precio": 15.99, "descripcion": "Camiseta ligera para entrenamiento deportivo."},
+    {"nombre": "Auriculares Bluetooth", "precio": 45.50, "descripcion": "Auriculares inalámbricos con sonido estéreo."},
+    {"nombre": "Mochila Urbana", "precio": 39.99, "descripcion": "Mochila resistente al agua para uso diario."},
+    {"nombre": "Reloj Inteligente", "precio": 120.00, "descripcion": "Smartwatch con monitor de actividad y notificaciones."},
+    {"nombre": "Gafas de Sol UV400", "precio": 25.75, "descripcion": "Gafas de sol con protección UV400."},
+    {"nombre": "Zapatos Running", "precio": 60.00, "descripcion": "Calzado deportivo para correr con amortiguación."},
+    {"nombre": "Lámpara de Escritorio", "precio": 18.90, "descripcion": "Lámpara LED ajustable para oficina o estudio."},
+    {"nombre": "Botella de Agua 1L", "precio": 12.50, "descripcion": "Botella reutilizable de acero inoxidable."},
+    {"nombre": "Auricular Gaming", "precio": 55.00, "descripcion": "Auriculares con micrófono y sonido envolvente."},
+    {"nombre": "Cuaderno de Notas", "precio": 7.25, "descripcion": "Cuaderno con tapa dura y 100 hojas rayadas."},
+]
+
+for p in productos:
+    Producto.objects.create(**p)
+
+print("¡Productos cargados exitosamente!")
+
+=============================================
+
+Eliminar registros de la base de datos:
+
+Abrir el shell de Django:
+python manage.py shell
+
+Importar el modelo Producto:
+from mi_app.models import Producto
+
+Eliminar todos los registros de la base de datos:
+Producto.objects.all().delete()
+
+Confirmar la eliminación:
+Producto.objects.all()
+
+Eliminar Productos Específicos (por nombre):
+Producto.objects.filter(nombre__in=[
+    "Camiseta Deportiva",
+    "Auriculares Bluetooth",
+    "Mochila Urbana",
+    "Reloj Inteligente"
+]).delete()
+
+Eliminar Productos Específicos (por id):
+Producto.objects.filter(id__in=[1,2,3,4]).delete()
+
+Listar Productos:   
+from mi_app.models import Producto
+
+# Mostrar todos los productos
+Producto.objects.all()
+
+Filtrar por nombre exacto:
+Producto.objects.filter(nombre="Camiseta Deportiva")
+
+Por precio mayor que un valor
+Producto.objects.filter(precio__gt=50)  # productos con precio > 50
+
+Por precio menor o igual
+Producto.objects.filter(precio__lte=25)  # productos con precio <= 25
+
+Contiene texto (like)
+Producto.objects.filter(descripcion__icontains="LED")  # descripción que contiene 'LED', sin importar mayúsculas
+
+Obtener un solo registro
+Producto.objects.get(nombre="Reloj Inteligente")
+
+Ordenar resultados
+Producto.objects.all().order_by('precio')       # Orden ascendente por precio
+Producto.objects.all().order_by('-precio')      # Orden descendente por precio
+
+Contar registros
+Producto.objects.count()  # Número total de productos
+Producto.objects.filter(precio__gt=50).count()  # Cuántos productos cuestan más de 50
+
+Actualizar registros
+# Aumentar 10% a todos los productos con precio > 50
+for p in Producto.objects.filter(precio__gt=50):
+    p.precio = p.precio * 1.10
+    p.save()
+
+Eliminar registros
+# Eliminar productos que cuestan menos de 20
+Producto.objects.filter(precio__lt=20).delete()
+
+Crear un registro nuevo
+Producto.objects.create(
+    nombre="Teclado Mecánico",
+    precio=75.00,
+    descripcion="Teclado con retroiluminación y switches mecánicos."
+)
+
+Usar values() para obtener solo campos específicos
+Producto.objects.all().values('nombre', 'precio')
+
+Usar first() y last()
+Producto.objects.order_by('id').first()  # primer producto
+Producto.objects.order_by('id').last()   # último producto
+
