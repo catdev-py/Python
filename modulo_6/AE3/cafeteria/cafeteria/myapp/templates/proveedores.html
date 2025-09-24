@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Proveedores - Cafetería{% endblock %}
+
+{% block content %}
+<h1 class="text-center mb-5">Nuestros Proveedores de Confianza</h1>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for proveedor in proveedores %}
+    <div class="col">
+        <div class="card h-100 border-0 shadow-lg">
+            <div class="card-body text-center">
+                <div class="mb-4">
+                    <i class="fas fa-truck fa-3x text-primary"></i>
+                </div>
+                <h5 class="card-title">{{ proveedor.nombre }}</h5>
+                <p class="card-text">
+                    <i class="fas fa-map-marker-alt me-2"></i>{{ proveedor.direccion }}
+                </p>
+                <p class="card-text">
+                    <i class="fas fa-envelope me-2"></i>{{ proveedor.contacto }}
+                </p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+                <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#proveedorModal{{ proveedor.id }}">
+                    Más Información
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para cada proveedor -->
+    <div class="modal fade" id="proveedorModal{{ proveedor.id }}" tabindex="-1" aria-labelledby="proveedorModalLabel{{ proveedor.id }}" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="proveedorModalLabel{{ proveedor.id }}">{{ proveedor.nombre }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Dirección:</strong> {{ proveedor.direccion }}</p>
+                    <p><strong>Contacto:</strong> {{ proveedor.contacto }}</p>
+                    <p><strong>Productos suministrados:</strong> Café de alta calidad, equipos de preparación, accesorios</p>
+                    <p><strong>Años de colaboración:</strong> 5</p>
+                    <p><strong>Certificaciones:</strong> Comercio Justo, Orgánico, Rainforest Alliance</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+</script>
+{% endblock %}

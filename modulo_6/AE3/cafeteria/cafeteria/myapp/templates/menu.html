@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Menú - Cafetería{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="text-center mb-5">Nuestro Menú</h1>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for item in menu_items %}
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                {% if item.imagen %}
+                <img src="{{ item.imagen.url }}" class="card-img-top" alt="{{ item.nombre }}" style="height: 200px; object-fit: cover;">
+                {% else %}
+                <img src="{% static 'img/default_menu_item.jpg' %}" class="card-img-top" alt="{{ item.nombre }}" style="height: 200px; object-fit: cover;">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.nombre }}</h5>
+                    <p class="card-text">{{ item.descripcion|truncatewords:20 }}</p>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="text-muted">${{ item.precio }}</span>
+                        <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#menuItemModal{{ item.id }}">
+                            Ver detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para cada ítem del menú -->
+        <div class="modal fade" id="menuItemModal{{ item.id }}" tabindex="-1" aria-labelledby="menuItemModalLabel{{ item.id }}" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="menuItemModalLabel{{ item.id }}">{{ item.nombre }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        {% if item.imagen %}
+                        <img src="{{ item.imagen.url }}" class="img-fluid rounded mb-3" alt="{{ item.nombre }}">
+                        {% endif %}
+                        <p>{{ item.descripcion }}</p>
+                        <p><strong>Precio: ${{ item.precio }}</strong></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .card {
+        transition: transform 0.3s;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+    }
+</style>
+{% endblock %}
