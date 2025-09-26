@@ -1,0 +1,108 @@
+#Crear el entorno virtual : Python -m venv env
+# Activar el entorno virtual: env\Scripts\activate
+#instalar django: pip install Django
+# crear el proyecto: django-admin startproject cafeteria
+# entrar al proyecto: cd cafeteria
+# verificar que todo este bien y correr el servidor: python manage.py runserver
+#Crear la app: python manage.py startapp myapp
+# Dar alta la app en settings
+# crear el urls.py dentro la aplicacion myapp
+# incluir la ruta myapp dentro del urls.py del proyecto principal
+ 
+# crear los modelos (models.py)
+#crear las migraciones: python manage.py makemigrations
+# hacer la migracion: python manage.py migrate
+# crea super usuario: python manage.py createsuperuser
+# validar que funcione Admin django: http://127.0.0.1:8000/admin
+ 
+Poblar la BD con datos dummy, se sugiere generarlos usando ChatGPT y 
+luego cargarlos mediante la shell de python
+
+# DATOS Baristas
+# DATOS CAFES
+
+10 tipos de café:
+
+1. **Nombre**: Espresso Clásico  
+   **Origen**: Italia  
+   **Descripción**: Café intenso y concentrado, preparado con granos de alta calidad. Ideal para los amantes del café fuerte.  
+   **Precio**: $2.00  
+   **Nivel tostado**: Oscuro  
+   **Perfil sabor**: Cuerpo robusto, notas amargas y un final ligeramente dulce.  
+   **Imagen**: Espresso servido en taza pequeña, con crema densa.
+
+2. **Nombre**: Cappuccino Tradicional  
+   **Origen**: Italia  
+   **Descripción**: Mezcla perfecta de espresso, leche vaporizada y una capa de espuma cremosa. Ideal para un desayuno equilibrado.  
+   **Precio**: $3.50  
+   **Nivel tostado**: Medio  
+   **Perfil sabor**: Suave, cremoso, con notas lácteas y toques de chocolate.  
+   **Imagen**: Taza de cappuccino con arte latte de corazón.
+
+3. **Nombre**: Latte Vainilla  
+   **Origen**: Francia  
+   **Descripción**: Café suave con leche vaporizada y un toque de jarabe de vainilla. Perfecto para una pausa dulce.  
+   **Precio**: $4.00  
+   **Nivel tostado**: Claro  
+   **Perfil sabor**: Dulce y cremoso, con notas de vainilla y caramelo.  
+   **Imagen**: Vaso alto de latte con espuma ligera y decoración de vainilla.
+
+4. **Nombre**: Café Americano  
+   **Origen**: Estados Unidos  
+   **Descripción**: Un espresso diluido con agua caliente, para aquellos que disfrutan un café menos concentrado pero con sabor intenso.  
+   **Precio**: $2.50  
+   **Nivel tostado**: Oscuro  
+   **Perfil sabor**: Ligero, amargo, con notas de cacao y frutos secos.  
+   **Imagen**: Taza grande de café negro con vapor saliendo.
+
+5. **Nombre**: Flat White  
+   **Origen**: Australia  
+   **Descripción**: Café con un balance perfecto de espresso y leche vaporizada, sin tanta espuma como el cappuccino.  
+   **Precio**: $3.80  
+   **Nivel tostado**: Medio  
+   **Perfil sabor**: Suave, con cuerpo, notas de nueces y textura cremosa.  
+   **Imagen**: Vaso pequeño de flat white con arte latte minimalista.
+
+6. **Nombre**: Macchiato Caramel  
+   **Origen**: Italia  
+   **Descripción**: Espresso manchado con leche vaporizada y jarabe de caramelo. Un clásico dulce para disfrutar a cualquier hora del día.  
+   **Precio**: $4.50  
+   **Nivel tostado**: Medio  
+   **Perfil sabor**: Dulce, con caramelo tostado y toques de vainilla.  
+   **Imagen**: Vaso alto de macchiato con líneas de caramelo en el vaso.
+
+7. **Nombre**: Mocha Chocolate  
+   **Origen**: Perú  
+   **Descripción**: Café con una mezcla de espresso, leche y chocolate caliente. Ideal para los amantes del café con un toque achocolatado.  
+   **Precio**: $4.80  
+   **Nivel tostado**: Medio  
+   **Perfil sabor**: Chocolate oscuro, suave, con notas de café y dulce.  
+   **Imagen**: Vaso grande de mocha con crema batida y virutas de chocolate.
+
+8. **Nombre**: Café de Finca  
+   **Origen**: Colombia  
+   **Descripción**: Café especial de una finca orgánica, elaborado con granos seleccionados a mano.  
+   **Precio**: $5.00  
+   **Nivel tostado**: Claro  
+   **Perfil sabor**: Notas florales, frutales y con un retrogusto suave.  
+   **Imagen**: Taza de café con montañas de fondo, resaltando el origen colombiano.
+
+9. **Nombre**: Cortado  
+   **Origen**: España  
+   **Descripción**: Un shot de espresso cortado con una pequeña cantidad de leche caliente. Perfecto para quienes buscan un balance entre café y leche.  
+   **Precio**: $3.00  
+   **Nivel tostado**: Oscuro  
+   **Perfil sabor**: Intenso, pero con un toque cremoso y suave.  
+   **Imagen**: Vaso pequeño de cortado con espuma ligera en la superficie.
+
+10. **Nombre**: Cold Brew  
+    **Origen**: Brasil  
+    **Descripción**: Café infusionado en frío durante 12 horas, lo que lo hace suave y refrescante. Ideal para días calurosos.  
+    **Precio**: $4.20  
+    **Nivel tostado**: Medio  
+    **Perfil sabor**: Refrescante, con notas afrutadas y un toque de chocolate.  
+    **Imagen**: Vaso de cold brew con hielo y una rodaja de naranja para decorar.
+
+Estas descripciones servirán para poblar la base de datos usando el administrador de Django.
+
+También se puede poblar mediante la shell de python, tal como lo hicimos en el ejemplo anterior.

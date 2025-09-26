@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .forms import ContactoForm
 from .models import MenuItem, Barista, Cafe, Resena, Proveedor
 
 def index(request):
@@ -20,3 +21,18 @@ def resenas(request):
 def proveedores(request):
     proveedores = Proveedor.objects.all()
     return render(request, 'proveedores.html', {'proveedores': proveedores})
+
+def formulario(request):
+    if request.method == 'POST':
+        form = ContactoForm(request.POST)
+        if form.is_valid():
+            # Procesar datos
+            nombre = form.cleaned_data['nombre']
+            correo = form.cleaned_data['correo']
+            mensaje = form.cleaned_data['mensaje']
+            # Realizar alguna acción con los datos, como enviar un correo
+            return render(request, 'contacto_exito.html', {'nombre': nombre})
+    else:
+        form = ContactoForm()
+    
+    return render(request, 'contacto.html', {'form': form})

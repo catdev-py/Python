@@ -1,0 +1,93 @@
+REQUERIMIENTOS CAFETERÍA
+
+Proyecto: Sistema de Cafetería en Django
+Este proyecto en Django tiene como objetivo crear una aplicación para gestionar una cafetería. Los usuarios pueden ver el menú de la cafetería, 
+conocer a los baristas, explorar los tipos de café que se ofrecen y leer reseñas de los clientes. El contenido será gestionado desde el 
+administrador de Django, permitiendo crear, editar y eliminar ítems del menú, baristas, cafés y reseñas.
+Funcionalidades Principales:
+1. Página del Menú: Mostrará los ítems del menú, incluyendo el nombre, descripción, precio e imagen. Esta página utilizará Bootstrap para un 
+diseño atractivo y será gestionada desde el administrador de Django.
+2. Página de Baristas: Mostrará una lista de los baristas que trabajan en la cafetería, incluyendo sus nombres, descripciones y fotos.
+3. Página de Cafés: Describirá los diferentes tipos de café que se ofrecen, mostrando el origen, perfil de sabor, nivel de tostado, y precios.
+4. Página de Reseñas: Los clientes podrán ver las reseñas de otros clientes sobre los cafés, junto con una calificación y un comentario.
+
+Modelos Requeridos:
+1. Modelo MenuItem (Ítem del Menú) Este modelo representa los ítems del menú, como bebidas y alimentos.
+
+• id: AutoField - Identificador único automático.
+• nombre: CharField - Nombre del ítem del menú.
+
+Ejemplo: "Cappuccino", "Croissant"
+
+• descripcion: TextField - Descripción detallada del ítem.
+• precio: DecimalField - Precio del ítem.
+
+Ejemplo: max_digits=5, decimal_places=2
+
+• categoria: CharField - Categoría del ítem (por ejemplo, "Bebida", "Alimento").
+• imagen: ImageField - Imagen representativa del ítem. 
+• Opcional, configurando almacenamiento de archivos en Django.
+
+2. Modelo Barista
+Este modelo almacena la información sobre los baristas.
+• id: AutoField - Identificador único automático.
+• nombre: CharField - Nombre completo del barista.
+• biografia: TextField - Breve descripción del barista.
+• foto: ImageField - Foto del barista.
+
+Opcional.
+3. Modelo Coffee (Café) - Este modelo almacena los diferentes tipos de café que ofrece la cafetería.
+• id: AutoField - Identificador único automático.
+• nombre: CharField - Nombre del tipo de café.
+
+Ejemplo: "Espresso", "Latte Macchiato"
+
+• origen: CharField - País o región de origen del café.
+
+Ejemplo: "Colombia", "Etiopía"
+
+• descripcion: TextField - Descripción detallada del café.
+• precio: DecimalField - Precio del café.
+
+Ejemplo: max_digits=5, decimal_places=2
+
+• nivel_tostado: CharField - Nivel de tostado.
+
+Ejemplos: "Claro", "Medio", "Oscuro"
+
+• perfil_sabor: CharField - Descripción del perfil de sabor del café.
+
+Ejemplo: "Afrodisíaco", "Frutal", "Chocolateado"
+
+• imagen: ImageField - Imagen representativa del tipo de café.
+
+Bonus.
+4. Modelo Review (Reseña) - Este modelo gestiona las reseñas de los clientes sobre los cafés.
+• id: AutoField - Identificador único automático.
+• nombre_cliente: CharField - Nombre del cliente que realiza la reseña.
+• calificacion: IntegerField - Calificación del café, por ejemplo, del 1 al 5.
+• comentario: TextField - Comentario detallado del cliente.
+• fecha_creacion: DateTimeField - Fecha y hora en que se creó la reseña.
+
+Establecer con auto_now_add=True.
+5. Modelo Proveedor (Nuevo Modelo Recomendado) - Este modelo gestionará los proveedores de café de la cafetería. Los proveedores podrían tener 
+diferentes tipos de café que suministran a la cafetería.
+• id: AutoField - Identificador único automático.
+• nombre: CharField - Nombre del proveedor.
+• contacto: CharField - Información de contacto del proveedor (teléfono o correo electrónico).
+• direccion: TextField - Dirección del proveedor.
+• pais: CharField - País donde está ubicado el proveedor.
+
+Vistas y Funcionalidades Adicionales:
+1. Página de Menú: Usando Bootstrap, esta página presentará el menú de la cafetería con los ítems gestionados desde el admin.
+2. Página de Baristas: Mostrará los baristas con sus fotos y descripciones.
+3. Página de Cafés: Mostrará los tipos de café que se manejan en la cafetería, incluyendo detalles como origen y perfil de sabor.
+4. Página de Reseñas: Permitirá ver las reseñas de los clientes sobre los cafés disponibles.
+5. Página de Proveedores: (Opcional, según se necesite) Listará los proveedores de la cafetería y los cafés que proporcionan.
+
+Resumen de Operaciones:
+• Alta, edición y eliminación de ítems del menú, baristas, cafés, reseñas y proveedores serán gestionados desde el administrador de Django.
+• Las reseñas serán gestionadas desde la vista de la página de cafés.
+• Diseño del frontend utilizando Bootstrap y CSS para la presentación de cada página
+
+Poblar la base de datos (todos los modelos) con datos dummy mediante la shell de python.
