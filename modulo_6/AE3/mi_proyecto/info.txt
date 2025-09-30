@@ -7,8 +7,8 @@ Luego ejecutar:
 from mi_app.models import Producto
 
 productos = [
-    {"nombre": "Camiseta Deportiva", "precio": 15.99, "descripcion": "Camiseta ligera para entrenamiento deportivo."},
-    {"nombre": "Auriculares Bluetooth", "precio": 45.50, "descripcion": "Auriculares inalámbricos con sonido estéreo."},
+    {"nombre": "Gafas de sol", "precio": 50.99, "descripcion": "Gafas de sol deportivas."},
+    {"nombre": "Toalla de playa", "precio": 10.50, "descripcion": "Toalla de microfibra."},
     {"nombre": "Mochila Urbana", "precio": 39.99, "descripcion": "Mochila resistente al agua para uso diario."},
     {"nombre": "Reloj Inteligente", "precio": 120.00, "descripcion": "Smartwatch con monitor de actividad y notificaciones."},
     {"nombre": "Gafas de Sol UV400", "precio": 25.75, "descripcion": "Gafas de sol con protección UV400."},
