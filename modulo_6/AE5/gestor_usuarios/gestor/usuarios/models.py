@@ -7,5 +7,4 @@ class CustomUser(AbstractUser):
             ("view_ventas", "Puede ver la sección de ventas"),
             ("view_compras", "Puede ver la sección de compras"),
             ("view_inventarios", "Puede ver la sección de inventarios"),            
-        ]
-
+        ]    

@@ -27,18 +27,6 @@ def register(request):
     
     return render(request, 'register.html', {'form': form})
 
-""" def register(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            user.groups.add(request.POST.get('group'))
-            login(request, user)
-            return redirect('home')
-    else:
-        form = UserCreationForm()
-    return render(request, 'register.html', {'form': form}) """
-
 def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -49,15 +37,17 @@ def login_view(request):
             return redirect('home')
     return render(request, 'login.html')
 
-@permission_required('usuarios.view_ventas', raise_exception=True)
+from django.contrib.auth.decorators import login_required
+
+@login_required
 def view_ventas(request):
     return render(request, 'ventas.html', {'title': 'Ventas'})
 
-@permission_required('usuarios.view_compras', raise_exception=True)
+@login_required
 def view_compras(request):
     return render(request, 'compras.html', {'title': 'Compras'})
 
-@permission_required('usuarios.view_inventarios', raise_exception=True)
+@login_required
 def view_inventarios(request):
     return render(request, 'inventarios.html', {'title': 'Inventarios'})
 
@@ -66,4 +56,4 @@ def home(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('login')
+    return render(request, 'logout.html')
