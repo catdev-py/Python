@@ -1,0 +1,42 @@
+Comando para habilitar la execución de Scripts en tu máquina:
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+1 python -m venv env
+2 env\Scripts\activate
+3 pip install django (para actualizar con django python.exe -m pip install --upgrade pip)
+4 cd Nombre.proyecto
+5 cd nonmbre.proyecto
+6 Python manage.py makemigrations
+7 Python manage.py migrate
+8 python manage.py createsuperuser
+9 python manage.py runserver
+10 python manage.py startapp mi_app
+
+python -m pip install Pillow (Comando para biblioteca que guarde las imágenes en el proyecto)
+
+ python.exe -m pip install --upgrade pip
+
+Para admin.py en la app
+from django.contrib import admin
+from .models import Producto
+# Register your models here.
+admin.site.register(Producto)
+
+from django.shortcuts import render
+from .models import Producto
+
+def lista_productos(request):
+    productos = Producto.objects.all()
+    return render(request, 'productos.html', {'productos': productos})
+
+PRIMERO CREAMOS CARPETA STATIC, TEMPLATES, EN MI APP Y MEDIA EN BASE
+MODIFICAMOS SETTING (SE AGREGA MI APP, TEMPLATES (os.path.join(BASE_DIR, 'templates')), Y STATIC FILES AL FINAL. NO OLVIDAR IMPORT OS
+
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'mi_app/static'),
+]
+# Configuración de archivos multimedia
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+

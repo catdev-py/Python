@@ -1,0 +1,138 @@
+Caso Restaurante "El Morro"
+
+Descripción del Proyecto: El restaurante "La Buena Mesa" requiere un sistema para 
+gestionar sus operaciones, que abarque desde la reserva de mesas hasta el 
+seguimiento de pedidos y pagos. Este sistema permitirá al personal gestionar de 
+forma eficiente las reservas, pedidos, métodos de pago y generar reportes para 
+controlar ingresos y mantener el historial de clientes.
+
+Objetivos del Usuario (Administradores y Personal de Servicio):
+
+• Gestión de Reservas: Facilitar la reserva de mesas asignando cliente, fecha, 
+hora, y estado.
+• Historial de Pedidos: Mantener un registro detallado de todos los pedidos 
+realizados, incluyendo productos, cantidades, precios y estado.
+• Cobro de Pedidos: Actualizar el estado de los pedidos a "pagado" y registrar 
+la transacción en los ingresos.
+• Reportes de Ventas e Ingresos: Generar reportes detallados que faciliten la 
+toma de decisiones.
+• Mantenimiento de Historial de Clientes: Gestionar la información de los 
+clientes, incluyendo sus reservas y pedidos anteriores.
+
+Requerimientos Funcionales
+
+1. Reservas de Mesas: Permitir el registro de reservas asignando cliente, mesa, 
+fecha y estado.
+2. Gestión de Pedidos: Registrar pedidos asociados a reservas y clientes, con 
+detalles de productos, cantidades, precios y métodos de pago.
+3. Control de Ingresos: Registrar los pagos y permitir el uso de diferentes 
+métodos de pago.
+4. Reportes: Generar reportes detallados de ventas, ingresos y el historial de 
+pedidos de clientes.
+5. Manejo de Usuarios: Diferenciar roles entre administrador y personal de 
+servicio.
+
+Requerimientos No Funcionales
+
+• Uso de Python/Django para el backend.
+• mySQL como base de datos.
+• Diseño responsivo usando Bootstrap.
+• Autenticación de usuarios con Django-Auth o sistema personalizado.
+• Documentación en un archivo README.md.
+• Repositorio público en GitHub con un archivo .gitignore adecuado.
+
+Diagrama Entidad-Relación (ERD)
+
+Las relaciones entre las tablas se detallan a continuación:
+
++--------------------------------------------------------------------------------------+
+|   Entidad   |              Campos             |             Relaciones               |
+|-------------|---------------------------------|--------------------------------------|
+| Cliente     | id_cliente, nombre, telefono,   |Relaciona con Reserva (1 CLiente a    |
+|             | correo, direccion               |muchas Reservas), Pedido (1 Cliente a |
+|             |                                 |muchos Pedidos)                       |
++-------------+---------------------------------+--------------------------------------+
+| Reserva     | id_reserva, cliente_id (FK),    |Relaciona con Cliente (muchas Reservas|
+|             | mesa_id (FK), fecha_reserva,    |a 1 Cliente), Mesa (muchas Reservas a |
+|             | estado                          |1 Mesa), Pedido (1 a muchos)          |
++-------------+---------------------------------+--------------------------------------+
+| Mesa        | id_mesa, capacidad, ubicacion   |Relaciona con Reserva (1 Mesa a muchas|
+|             |                                 |Reservas)                             |
++-------------+---------------------------------+--------------------------------------+
+| Pedido      | id_pedido, reserva_id (FK),     |Relaciona con Cliente (muchos Pedidos |
+|             | cliente_id (FK), total,         |a 1 Cliente), Reserva (1 Pedido a 1   |
+|             | fecha_pedido, estado            |Reserva), ItemPedido (1 a muchos)     |
++-------------+---------------------------------+--------------------------------------+
+| MetodoPago  | id_metodo_pago, tipo,           |Relaciona con Pedido a través de pagos|
+|             | descripcion                     |(1 MetodoPago a muchos Pedidos)       |
++-------------+---------------------------------+--------------------------------------+
+| ItemPedido  | id_item, pedido_id (FK),        |Relaciona con Pedido (muchos          |
+|             | producto_id (FK), cantidad,     |ItemPedidos a 1 Pedido), Producto     |
+|             | precio_unitario                 |(muchos ItemPedidos a 1 Producto)     |
++-------------+---------------------------------+--------------------------------------+
+
+
+Tablas y Descripción de Relaciones
+
+1. Cliente: Almacena información de cada cliente. Cada cliente puede tener 
+múltiples reservas y pedidos.
+2. Reserva: Registra las reservas de mesas, asociadas a un cliente y una mesa 
+específica. Una reserva puede tener uno o más pedidos asociados, y cada mesa 
+puede estar vinculada a múltiples reservas en distintos horarios.
+3. Mesa: Almacena datos de las mesas del restaurante, como capacidad y 
+ubicación. Cada mesa puede tener varias reservas en horarios diferentes.
+4. Pedido: Registra información de los pedidos realizados por los clientes, 
+asociados a una reserva (si aplica) y un cliente específico. Un pedido puede 
+incluir múltiples productos (registrados en la tabla ItemPedido) y un método 
+de pago.
+5. MetodoPago: Almacena los métodos de pago disponibles, como tarjeta, efectivo 
+o transferencia. Un método de pago puede estar asociado a múltiples pedidos.
+6. ItemPedido: Registra los productos solicitados en cada pedido. Relaciona 
+cada pedido con los productos incluidos, especificando cantidad y precio por 
+unidad.
+
+Solicitudes de Reporte:
+
+1. Reporte de Ventas por Fecha: Genera un reporte de ventas filtrado por rango 
+de fechas, incluyendo:
+o ID del Pedido
+o Cliente
+o Total del Pedido
+o Estado
+o Fecha del Pedido
+
+2. Reporte de Reservas: Lista de reservas con filtros por fecha, mesa o estado, 
+incluyendo:
+o ID de la Reserva
+o Cliente
+o Mesa
+o Fecha de Reserva
+o Estado
+
+3. Reporte de Ingresos: Genera un reporte de ingresos filtrado por rango de 
+fechas, incluyendo:
+o ID del Pedido
+o Cliente
+o Total del Pedido
+o Método de Pago
+o Fecha de Pago
+
+4. Historial de Pedidos de Clientes: Muestra todos los pedidos realizados por 
+un cliente en un período específico, detallando:
+o ID del Pedido
+o Fecha del Pedido
+o Total
+o Estado del Pedido
+
+Instrucciones de Entrega
+
+Sube el código a un repositorio público en GitHub. Incluye un archivo README.md 
+con las instrucciones para la instalación y ejecución, así como un enlace directo 
+al repositorio.
+
+ROADMAP:
+
+1. Crear el proyecto.
+2. Crear la aplicación para las mesas.
+3. Hacer las migraciones.
+4. Verificar la base de datos.
