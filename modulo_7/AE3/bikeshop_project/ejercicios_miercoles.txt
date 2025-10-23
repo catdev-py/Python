@@ -1,0 +1,8 @@
+from clientes.models import Cliente
+from bicicletas.models import Bicicleta
+from ordenes.models import Orden, DetalleOrden
+
+# Crear cliente y bicicletas
+c = Cliente.objects.create(nombre="Laura Gómez", email="laura@example.com")
+b1 = Bicicleta.objects.create(tipo="Mountain Bike", precio=500)
+b2 = Bicicleta.objects.create(tipo="Ruta Pro", precio=800)

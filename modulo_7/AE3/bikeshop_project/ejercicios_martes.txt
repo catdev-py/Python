@@ -1,0 +1,83 @@
+1. Crear un cliente (sin perfil todavía): 
+
+from clientes.models import Cliente, PerfilCliente
+
+c = Cliente.objects.create(nombre="Andrés Espinoza", email="aespinoza@example.com")
+----------------------------------------------------
+2. Ver que cliente existe pero no tiene perfil (acceso inverso): 
+
+c = Cliente.objects.get(email="carlos@example.com")
+# Intentar acceder a c.perfil disparará PerfilCliente.DoesNotExist mientras no exista
+try:
+    p = c.perfil
+except PerfilCliente.DoesNotExist:
+    print("El cliente aún no tiene perfil")
+----------------------------------------------------
+3. Crear el perfil vinculado: 
+
+p = PerfilCliente.objects.create(cliente=c, direccion="Av. Siempreviva 123", telefono="987654321", fecha_nacimiento="1990-05-10")
+# Ahora:
+c.perfil  # devuelve el perfil
+p.cliente  # devuelve el cliente
+----------------------------------------------------
+4. Crear cliente y perfil dentro de una transacción (para evitar estados parciales): 
+
+from django.db import transaction
+
+with transaction.atomic():
+    c2 = Cliente.objects.create(nombre="Cristian Aranda", email="caranda@example.com")
+    PerfilCliente.objects.create(cliente=c2, direccion="Avenida Quillota 2345", telefono="123456789")
+------------------------------------------------------------
+5. Consultar eficientemente (select_related): 
+
+from clientes.models import Cliente
+# Obtener clientes con perfil en una sola consulta (JOIN)
+qs = Cliente.objects.select_related('perfil').all()
+for cliente in qs:
+    print(cliente.nombre, cliente.perfil.telefono)
+-----------------------------------------------------------
+6. Modificar datos del perfil: 
+
+p = c.perfil
+p.telefono = "111-222-333"
+p.save()
+----------------------------------------------------------
+7. Borrar el perfil sin eliminar el cliente: 
+
+p.delete()
+# cliente sigue existiendo
+-----------------------------------------------------------
+8. Borrar el cliente y ver cascada (con on_delete=CASCADE):
+c.delete()
+# Si on_delete=CASCADE entonces el perfil relacionado se elimina automáticamente.
+---------------------------------------------------------------------------
+Error al intentar acceder al perfil de clientes que no tienen un perfil asociado.
+
+Solución inmediata:
+# Opción 1: Filtrar solo clientes con perfil
+
+from clientes.models import Cliente
+
+qs = Cliente.objects.select_related('perfil').filter(perfil__isnull=False)
+for cliente in qs:
+    print(cliente.nombre, cliente.perfil.telefono)
+--------------------------------------------------------
+# Opción 2: Manejar la excepción
+
+qs = Cliente.objects.select_related('perfil').all()
+for cliente in qs:
+    try:
+        print(cliente.nombre, cliente.perfil.telefono)
+    except Cliente.perfil.RelatedObjectDoesNotExist:
+        print(f"{cliente.nombre} no tiene perfil")
+----------------------------------------------
+
+3.- Solución permanente:
+# Crear perfiles para clientes que no los tienen
+
+from clientes.models import Cliente, PerfilCliente
+
+clientes_sin_perfil = Cliente.objects.filter(perfil__isnull=True)
+for cliente in clientes_sin_perfil:
+    PerfilCliente.objects.create(cliente=cliente)
+    print(f"Perfil creado para {cliente.nombre}")
