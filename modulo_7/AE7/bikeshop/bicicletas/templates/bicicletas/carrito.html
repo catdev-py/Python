@@ -1,0 +1,66 @@
+{% extends 'bicicletas/base.html' %}
+{% block title %}Carrito de Compras{% endblock %}
+{% block content %}
+<h1>Carrito de Compras</h1>
+
+{% if bicicletas_en_carrito %}
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Bicicleta</th>
+                <th>Precio Unitario</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in bicicletas_en_carrito %}
+            <tr>
+                <td>
+                    <strong>{{ item.bicicleta.marca }} {{ item.bicicleta.modelo }}</strong><br>
+                    <small class="text-muted">{{ item.bicicleta.tipo }}</small>
+                </td>
+                <td>${{ item.bicicleta.precio }}</td>
+                <td>
+                    <form method="post" action="{% url 'actualizar_cantidad_carrito' item.bicicleta.id %}" class="d-inline">
+                        {% csrf_token %}
+                        <div class="input-group input-group-sm" style="width: 120px;">
+                            <input type="number" name="cantidad" value="{{ item.cantidad }}" min="1" max="10" class="form-control">
+                            <button type="submit" class="btn btn-outline-primary">Actualizar</button>
+                        </div>
+                    </form>
+                </td>
+                <td>${{ item.subtotal }}</td>
+                <td>
+                    <a href="{% url 'eliminar_del_carrito' item.bicicleta.id %}" class="btn btn-sm btn-danger">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-end"><strong>Total:</strong></td>
+                <td><strong>${{ total }}</strong></td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<div class="d-flex justify-content-between mt-4">
+    <a href="{% url 'lista_bicicletas' %}" class="btn btn-secondary">Seguir Comprando</a>
+    <div>
+        <a href="{% url 'vaciar_carrito' %}" class="btn btn-warning me-2">Vaciar Carrito</a>
+        <a href="{% url 'crear_orden' %}" class="btn btn-success">Proceder al Pago</a>
+    </div>
+</div>
+{% else %}
+<div class="alert alert-info">
+    <h4>Tu carrito está vacío</h4>
+    <p>No has agregado ninguna bicicleta al carrito todavía.</p>
+    <a href="{% url 'lista_bicicletas' %}" class="btn btn-primary">Ver Bicicletas</a>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'bicicletas/base.html' %}
+{% block title %}Detalle de Orden #{{ orden.id }}{% endblock %}
+{% block content %}
+<h1>Detalle de Orden #{{ orden.id }}</h1>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <h5 class="mb-0">Información de la Orden</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Cliente:</strong> {{ orden.cliente.nombre }}</p>
+                <p><strong>Fecha:</strong> {{ orden.fecha|date:"d/m/Y H:i" }}</p>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Estado:</strong> 
+                    <span class="badge {% if orden.estado == 'pagada' %}bg-success{% elif orden.estado == 'cancelada' %}bg-danger{% else %}bg-warning{% endif %}">
+                        {{ orden.estado|title }}
+                    </span>
+                </p>
+                <p><strong>Total:</strong> ${{ orden.total }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3>Productos en la Orden</h3>
+{% if detalles %}
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Bicicleta</th>
+                <th>Precio Unitario</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for detalle in detalles %}
+            <tr>
+                <td>
+                    <strong>{{ detalle.bicicleta.marca }} {{ detalle.bicicleta.modelo }}</strong><br>
+                    <small class="text-muted">{{ detalle.bicicleta.tipo }}</small>
+                </td>
+                <td>${{ detalle.precio_unitario }}</td>
+                <td>{{ detalle.cantidad }}</td>
+                <td>${{ detalle.subtotal }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-end"><strong>Total:</strong></td>
+                <td><strong>${{ orden.total }}</strong></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+{% else %}
+<div class="alert alert-warning">
+    No hay productos en esta orden.
+</div>
+{% endif %}
+
+<div class="mt-4">
+    <a href="{% url 'lista_ordenes' %}" class="btn btn-secondary">Volver a Órdenes</a>
+    <a href="{% url 'lista_bicicletas' %}" class="btn btn-primary">Seguir Comprando</a>
+</div>
+{% endblock %}

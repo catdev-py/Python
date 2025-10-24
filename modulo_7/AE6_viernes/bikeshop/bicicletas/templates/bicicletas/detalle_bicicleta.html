@@ -1,0 +1,17 @@
+{% extends 'bicicletas/base.html' %}
+{% block title %}Detalle Bicicleta{% endblock %}
+{% block content %}
+<h1>Detalle: {{ bicicleta }}</h1>
+<ul class="list-group">
+  <li class="list-group-item"><strong>Marca:</strong> {{ bicicleta.marca }}</li>
+  <li class="list-group-item"><strong>Modelo:</strong> {{ bicicleta.modelo }}</li>
+  <li class="list-group-item"><strong>Tipo:</strong> {{ bicicleta.tipo }}</li>
+  <li class="list-group-item"><strong>Precio:</strong> ${{ bicicleta.precio }}</li>
+  <li class="list-group-item"><strong>Disponible:</strong> {% if bicicleta.disponible %}Sí{% else %}No{% endif %}</li>
+  <li class="list-group-item"><strong>Año:</strong> {{ bicicleta.anio }}</li>
+</ul>
+<div class="mt-3">
+  <a class="btn btn-warning" href="{% url 'actualizar_bicicleta' bicicleta.id %}">Editar</a>
+  <a class="btn btn-secondary" href="{% url 'lista_bicicletas' %}">Volver</a>
+</div>
+{% endblock %}

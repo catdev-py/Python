@@ -1,0 +1,40 @@
+{% extends 'bicicletas/base.html' %}
+{% block title %}Listado de Bicicletas{% endblock %}
+{% block content %}
+<h1>Listado de Bicicletas</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Tipo</th>
+      <th>Precio</th>
+      <th>Disponible</th>
+      <th>Año</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for b in bicicletas %}
+    <tr>
+      <td>{{ b.id }}</td>
+      <td>{{ b.marca }}</td>
+      <td>{{ b.modelo }}</td>
+      <td>{{ b.tipo }}</td>
+      <td>${{ b.precio }}</td>
+      <td>{% if b.disponible %}Sí{% else %}No{% endif %}</td>
+      <td>{{ b.anio }}</td>
+      <td>
+        <a class="btn btn-sm btn-info" href="{% url 'detalle_bicicleta' b.id %}">Ver</a>
+        <a class="btn btn-sm btn-warning" href="{% url 'actualizar_bicicleta' b.id %}">Editar</a>
+        <a class="btn btn-sm btn-danger" href="{% url 'confirmar_eliminar_bicicleta' b.id %}">Eliminar</a>
+      </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="8">No hay bicicletas registradas.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

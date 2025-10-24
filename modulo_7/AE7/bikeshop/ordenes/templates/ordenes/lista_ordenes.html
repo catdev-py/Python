@@ -1,0 +1,50 @@
+{% extends 'bicicletas/base.html' %}
+{% block title %}Listado de Órdenes{% endblock %}
+{% block content %}
+<h1>Listado de Órdenes</h1>
+
+{% if ordenes %}
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Fecha</th>
+                <th>Total</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for orden in ordenes %}
+            <tr>
+                <td>{{ orden.id }}</td>
+                <td>{{ orden.cliente.nombre }}</td>
+                <td>{{ orden.fecha|date:"d/m/Y H:i" }}</td>
+                <td>${{ orden.total }}</td>
+                <td>
+                    <span class="badge {% if orden.estado == 'pagada' %}bg-success{% elif orden.estado == 'cancelada' %}bg-danger{% else %}bg-warning{% endif %}">
+                        {{ orden.estado|title }}
+                    </span>
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-info" href="{% url 'detalle_orden' orden.id %}">Ver</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="alert alert-info">
+    <h4>No hay órdenes registradas</h4>
+    <p>No se han creado órdenes en el sistema todavía.</p>
+    <a href="{% url 'lista_bicicletas' %}" class="btn btn-primary">Ver Bicicletas</a>
+</div>
+{% endif %}
+
+<div class="mt-3">
+    <a href="{% url 'lista_bicicletas' %}" class="btn btn-secondary">Volver a Bicicletas</a>
+</div>
+{% endblock %}

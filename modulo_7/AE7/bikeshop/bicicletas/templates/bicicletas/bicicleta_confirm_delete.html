@@ -1,0 +1,14 @@
+{% extends 'bicicletas/base.html' %}
+{% block title %}Confirmar eliminación{% endblock %}
+{% block content %}
+<h1>Eliminar Bicicleta</h1>
+<p>¿Deseas eliminar la bicicleta <strong>{{ bicicleta }}</strong>?</p>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger">Eliminar</button>
+  <a href="{% url 'lista_bicicletas' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}
+
+
