@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bikeshop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+        }
+        .actions button {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Bicicletas</h1>
+
+    <h3>Crear nueva bicicleta</h3>
+    <form action="{% url 'bicicletas:crear_bicicleta' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Crear</button>
+    </form>
+
+    <h3>Bicicletas disponibles</h3>
+    <ul>
+        {% for bicicleta in bicicletas %}
+            <li>
+                <span>{{ bicicleta.nombre }} - {{ bicicleta.tipo }} - ${{ bicicleta.precio }} - Stock: {{ bicicleta.stock }}</span>
+                <span class="actions">
+                    <a href="{% url 'bicicletas:actualizar_bicicleta' bicicleta.pk %}">
+                        <button type="button">Editar</button>
+                    </a>
+                    <a href="{% url 'bicicletas:eliminar_bicicleta' bicicleta.pk %}">
+                        <button type="button">Eliminar</button>
+                    </a>
+                </span>
+            </li>
+        {% empty %}
+            <li>No hay bicicletas registradas.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
